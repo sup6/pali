@@ -22,7 +22,7 @@ mintpkjs:
 
 tpktanslation:
 	@echo "\033[92mCreate Tipiṭaka-related translations for server and client ...\033[0m"
-	@python $(TIPITAKA_DIR)/setup/setTranslationData.py
+	@python2 $(TIPITAKA_DIR)/setup/setTranslationData.py
 
 dicdevserver:
 	cd $(DICTIONARY_DIR); python devNotGaeRun.py
@@ -42,13 +42,13 @@ ec2setup: cptpkcss symlinks setupPOMO ngjs parsedics prefix_words_html succinct_
 
 parsetpk:
 	@echo "\033[92mParsing Tipiṭaka data ...\033[0m"
-	@python $(TIPITAKA_DIR)/setup/init1getTocs.py
-	@python $(TIPITAKA_DIR)/setup/init2tocsToJson.py
-	@python $(TIPITAKA_DIR)/setup/init3addSubpathInJson.py
+	@python2 $(TIPITAKA_DIR)/setup/init1getTocs.py
+	@python2 $(TIPITAKA_DIR)/setup/init2tocsToJson.py
+	@python2 $(TIPITAKA_DIR)/setup/init3addSubpathInJson.py
 
 ngdatajs:
 	@echo "\033[92mCreating ng js module for books info and succinct trie data...\033[0m"
-	@python $(DICTIONARY_DIR)/setup/init4jsonToJS.py
+	@python2 $(DICTIONARY_DIR)/setup/init4jsonToJS.py
 
 succinct_trie:
 	@echo "\033[92mCreating succinct trie json ...\033[0m"
@@ -56,17 +56,17 @@ succinct_trie:
 
 prefix_words_html:
 	@echo "\033[92mCreating prefix-words HTML ...\033[0m"
-	@python $(DICTIONARY_DIR)/setup/init3prefixWordsHtml.py
+	@python2 $(DICTIONARY_DIR)/setup/init3prefixWordsHtml.py
 
 parsedics:
 	@echo "\033[92mParse Dictionary Books Information ...\033[0m"
-	@python $(DICTIONARY_DIR)/setup/init1parseBooks.py
+	@python2 $(DICTIONARY_DIR)/setup/init1parseBooks.py
 	@echo "\033[92mParse Dictionary Words ...\033[0m"
-	@python $(DICTIONARY_DIR)/setup/init2parseWords.py
+	@python2 $(DICTIONARY_DIR)/setup/init2parseWords.py
 
 ngjs:
 	@echo "\033[92mCreating client-side i18n js ...\033[0m"
-	@python setup/i18nUtils.py js
+	@python2 setup/i18nUtils.py js
 
 cptpkcss:
 	@echo "\033[92mCopying tipitaka css ...\033[0m"
@@ -86,7 +86,7 @@ install:
 	@# gettext installed on Ubuntu 15.10 by default
 	@#apt-cache policy gettext
 	@echo "\033[92mInstalling Python webpy via apt-get ...\033[0m"
-	@sudo apt-get install python-webpy
+	@sudo apt-get install python3-webpy
 	@echo "\033[92mInstalling Python jinja2 via apt-get ...\033[0m"
 	@sudo apt-get install python-jinja2
 	@echo "\033[92mInstalling Python lxml via apt-get ...\033[0m"

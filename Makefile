@@ -9,7 +9,7 @@ DICTIONARY_DIR=$(CURDIR)/dictionary
 TIPITAKA_DIR=$(CURDIR)/tipitaka
 
 tpkdevserver:
-	cd $(TIPITAKA_DIR); python devNotGaeRun.py
+	cd $(TIPITAKA_DIR); python2 devNotGaeRun.py
 
 mintpkcss:
 	@echo "\033[92m(Tipiṭaka) minify css ...\033[0m"
@@ -25,7 +25,7 @@ tpktanslation:
 	@python2 $(TIPITAKA_DIR)/setup/setTranslationData.py
 
 dicdevserver:
-	cd $(DICTIONARY_DIR); python devNotGaeRun.py
+	cd $(DICTIONARY_DIR); python2 devNotGaeRun.py
 
 mindiccss:
 	@echo "\033[92m(Dictionary) minify css ...\033[0m"
